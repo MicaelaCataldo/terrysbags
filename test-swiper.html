@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Test Swiper</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .product-gallery {
+            display: flex;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 20px auto;
+            /* per centrarla */
+        }
+
+        /* Thumbnails a sinistra */
+        .gallery-thumbs {
+            width: 20%;
+            position: relative;
+        }
+
+        .gallery-thumbs .swiper-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-thumbs .swiper-slide {
+            width: 100%;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        .gallery-thumbs .swiper-slide-thumb-active {
+            opacity: 1;
+        }
+
+        /* Immagine grande a destra */
+        .gallery-top {
+            width: 80%;
+            position: relative;
+        }
+
+        .gallery-top .swiper-slide {
+            text-align: center;
+        }
+
+        .gallery-top img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="product-gallery">
+        <!-- Slider delle anteprime (thumbnails) -->
+        <div class="swiper-container gallery-thumbs">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/clutchClassica.png" alt="Anteprima 1" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/clutchClassica.png" alt="Anteprima 2" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/clutchClassica.png" alt="Anteprima 3" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider principale -->
+        <div class="swiper-container gallery-top">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/clutchClassica.png" alt="Borsa 1" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/clutchClassica.png" alt="Borsa 2" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/clutchClassica.png" alt="Borsa 3" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Inizializza lo slider delle anteprime
+        const galleryThumbs = new Swiper('.gallery-thumbs', {
+            direction: 'vertical',
+            slidesPerView: 3,
+            spaceBetween: 10,
+            freeMode: true,
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true
+        });
+
+        // Inizializza lo slider principale
+        const galleryTop = new Swiper('.gallery-top', {
+            spaceBetween: 10,
+            thumbs: {
+                swiper: galleryThumbs
+            }
+        });
+    </script>
+</body>
+
+</html>
