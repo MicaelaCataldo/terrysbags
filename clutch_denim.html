@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Terry's bags</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
+    <link rel="stylesheet" type="text/css" href="css/vendor.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+        #header-wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            z-index: 1000;
+        }
+
+        .product-item img {
+            height: 250px;
+            object-fit: fill;
+        }
+
+        /* Stile di base per il layout */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            margin-top: 35px;
+        }
+
+        /* ---------------------------
+           Sezione Immagini
+        --------------------------- */
+        .image-section {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        /* Wrapper per organizzare thumbnails e slider in colonne */
+        .image-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        /* Colonna Anteprime verticale */
+        .vertical-thumbnails {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            /* Imposta larghezza fissa oppure in percentuale */
+            width: 80px;
+        }
+
+        /* Impostazione thumbnails */
+        .vertical-thumbnails .thumb {
+            width: 100%;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .vertical-thumbnails .thumb.active,
+        .vertical-thumbnails .thumb:hover {
+            opacity: 1;
+        }
+
+        /* Area slider principale */
+        .slider-wrapper {
+            flex: 1;
+            position: relative;
+        }
+
+        .slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* ---------------------------
+           Sezione Descrizione
+        --------------------------- */
+        .description-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .buy-button {
+            background-color: #f04;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        /* ---------------------------
+           Media Query per dispositivi mobili
+        --------------------------- */
+        @media (max-width: 768px) {
+            .image-wrapper {
+                flex-direction: column;
+            }
+
+            .vertical-thumbnails {
+                flex-direction: row;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .vertical-thumbnails .thumb {
+                width: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
+
+    <div id="header-wrap">
+        <header id="header" style="height: 80px;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-7 " style="margin-top: 5px;">
+                        <div class="main-logo">
+                            <a href="index.html"><img src="images/logonavbar.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <nav id="navbar">
+                            <div class="main-menu stellarnav" style="margin-left: 20px;">
+                                <ul class="menu-list">
+                                    <li class="menu-item active"><a href="#home">Home</a></li>
+                                    <li class="menu-item"><a href="index.html#popular-books"
+                                            class="nav-link">Prodotti</a></li>
+                                    <li class="menu-item"><a href="index.html#contacts" class="nav-link">Contattaci</a>
+                                    </li>
+                                </ul>
+                                <div class="hamburger">
+                                    <span class="bar"></span>
+                                    <span class="bar"></span>
+                                    <span class="bar"></span>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div><!--header-wrap-->
+
+    <div class="product-container">
+        <!-- Sezione Immagini -->
+        <div class="image-section">
+            <div class="image-wrapper">
+                <!-- Colonna Anteprime Verticali -->
+                <div class="vertical-thumbnails">
+                    <img src="images/clutch/CLUTCH DENIM (2).webp" alt="Anteprima 1" class="thumb active"
+                        onclick="goToSlide(0)">
+
+
+                </div>
+                <!-- Area Slider Principale -->
+                <div class="slider-wrapper">
+                    <div class="slider">
+                        <button class="prev" onclick="prevSlide()">&#10094;</button>
+                        <div class="slides">
+                            <img src="images/clutch/CLUTCH DENIM (2).webp" alt="Borsa in crochet 1" class="slide active">
+
+                            <!-- Inserisci altre slide se necessario -->
+                        </div>
+                        <button class="next" onclick="nextSlide()">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sezione Descrizione -->
+        <div class="description-section">
+            <h1 class="section-title divider">Clutch Denim</h1>
+            <p>
+                Questa clutch bag artigianale è un vero e proprio pezzo unico, realizzato interamente a mano con un
+                filato denim che
+                emula l’effetto jeans, donando alla borsa un look moderno e versatile.
+                Il design della clutch, con una chiusura di 19 cm o 15 cm, è compatto e pratico.
+                Il materiale effetto jeans conferisce un tocco casual-chic, che si integra facilmente con diverse
+                tipologie di outfit,
+                dal più casual a quello più elegante.
+
+                Essendo unico pezzo disponibile, questa clutch è pensata per chi cerca un accessorio esclusivo e
+                distintivo, che unisce
+                l'artigianalità alla modernità, con un tocco di originalità.
+
+                È possibile applicare la tracolla (catena argentata o dorata o fettuccia stesso colore della borsa) ad
+                un costo di €5.
+
+             
+
+                <br><br><br>
+                Per richieste relative a colori diversi da quelli indicati, non esitare a
+                contattarci su Instagram
+                (@terrysbags_handmade).
+            </p>
+            <p><strong>Prezzo:</strong> €50,00</p>
+            <div class="btn-wrap">
+                <a href="index.html#contacts" class="btn btn-outline-accent btn-accent-arrow">Acquista<i
+                        class="icon icon-ns-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- Info copyright -->
+                            </div>
+                            <div class="col-md-6">
+                                <div class="social-links align-right">
+                                    <!-- Social links -->
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--grid-->
+                </div><!--footer-bottom-content-->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const thumbs = document.querySelectorAll('.thumb');
+
+        function showSlide(index) {
+            // Gestione degli indici fuori range
+            if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else if (index >= slides.length) {
+                currentSlide = 0;
+            } else {
+                currentSlide = index;
+            }
+
+            // Mostra lo slide corrente e aggiorna le anteprime attive
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === currentSlide);
+            });
+
+            thumbs.forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        // Inizializza lo slider
+        showSlide(currentSlide);
+    </script>
+</body>
+
+</html>
