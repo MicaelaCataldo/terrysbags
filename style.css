@@ -1238,31 +1238,23 @@ fieldset[disabled] a.btn {
 .bootstrap-tabs .tab-content>.active {
   display: block;
 }
-
-@media screen and (max-width: 3000px) {
-
-  .main-logo {
-    max-width: 30%;
-  }
-  
+.main-logo {
+  max-width: 200px;
+  height: auto;
 }
 
-
-@media screen and (max-width: 1366px) {
-
+/* Riduce leggermente il logo su tablet */
+@media screen and (max-width: 1024px) {
   .main-logo {
-    max-width: 100%;
+    max-width: 150px;
   }
-  
 }
 
+/* Logo più piccolo su smartphone */
 @media screen and (max-width: 700px) {
-
   .main-logo {
-    max-width: 100%;
-  }
-  
-}
+    max-width: 120px;
+  }}
 
  
 
