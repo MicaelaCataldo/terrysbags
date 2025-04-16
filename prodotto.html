@@ -36,6 +36,7 @@
 			gap: 20px;
 			max-height: 80vh;
 			overflow-y: auto;
+			margin-right: 50px
 		}
 
 		.thumbnails img {
@@ -58,52 +59,58 @@
 
 		/* Immagine principale */
 		.main-image img {
-			max-width: 600px;
+			/* max-width: 600px; */
 			max-height: 80vh;
 			display: block;
 		}
 
 		/* Stile dei pulsanti di navigazione */
 		.nav {
-			background-color: rgba(0, 0, 0, 0.5);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			background-color: rgba(0, 0, 0, 0.6);
 			color: #fff;
 			border: none;
-			font-size: 2rem;
-			width: 40px;
-			height: 40px;
+			font-size: 1.5rem;
+			/* Prova a ridurre leggermente la dimensione */
+			width: 50px;
+			height: 50px;
 			cursor: pointer;
 			position: absolute;
 			top: 50%;
 			transform: translateY(-50%);
 			z-index: 10;
+			border-radius: 50%;
+			transition: background-color 0.3s, transform 0.3s;
+			padding: 0;
+			/* Assicurati che il padding non sposti il contenuto */
+			line-height: 50px;
+			/* Allinea verticalmente */
 		}
 
+
+
 		.nav.prev {
-			left: -50px;
+			left: -60px;
 		}
 
 		.nav.next {
-			right: -50px;
+			right: -60px;
 		}
 
-		/* Per dispositivi con schermi piccoli, si può regolare il layout */
 		@media (max-width: 768px) {
 			.gallery-container {
 				flex-direction: column;
 			}
 
-			.main-container {
-				position: relative;
-			}
-
 			.nav.prev {
 				left: 10px;
-				top: 50%;
 			}
 
 			.nav.next {
 				right: 10px;
-				top: 50%;
 			}
 		}
 	</style>
@@ -156,144 +163,103 @@
 	<section id="best-selling" style="height: 100%;">
 		<div class="corner-pattern-overlay"></div>
 		<div class="container">
+			<!--style="margin: 0px !important;"-->
 			<div class="row justify-content-center">
 
-				<div class="col-md-12">
 
-					<div class="row">
 
-						<div class="col-md-8">
-							<figure class="products-thumb">
-								<!-- <img src="images/clutchClassica.png" alt="book" class="single-image"> -->
-								<!-- Contenitore Galleria -->
-								<div class="gallery-container">
-									<!-- Anteprime verticali a sinistra -->
-									<div class="thumbnails">
-										<img src="images/clutchClassica.png" alt="Clutch Classica"
-											onclick="changeImage('images/clutchClassica.png')" />
+				<div class="row">
 
-										<img src="images/clutch/CLUTCH CLASSICA (6).webp" alt="CLUTCH CLASSICA (6)"
-											onclick="changeImage('images/clutch/CLUTCH CLASSICA (6).webp')" />
+					<div class="col-md-8 col-12">
+						<figure class="products-thumb">
+							<!-- <img src="images/clutchClassica.png" alt="book" class="single-image"> -->
+							<!-- Contenitore Galleria -->
+							<div class="gallery-container">
+								<!-- Anteprime verticali a sinistra -->
+								<div class="thumbnails">
 
-										<img src="images/clutch/CLUTCH CLASSICA (7).webp" alt="CLUTCH CLASSICA (7)"
-											onclick="changeImage('images/clutch/CLUTCH CLASSICA (7).webp')" />
+									<img src="images/clutch/CLUTCH CLASSICA (6).webp" alt="CLUTCH CLASSICA (6)"
+										onclick="changeImage('images/clutch/CLUTCH CLASSICA (6).webp')" />
 
-										<img src="images/clutch/CLUTCH CLASSICA CON TRACOLLA IN FETTUCCIA.webp"
-											alt="CLUTCH CLASSICA CON TRACOLLA IN FETTUCCIA"
-											onclick="changeImage('images/clutch/CLUTCH CLASSICA CON TRACOLLA IN FETTUCCIA.webp')" />
+									<img src="images/clutch/CLUTCH CLASSICA (7).webp" alt="CLUTCH CLASSICA (7)"
+										onclick="changeImage('images/clutch/CLUTCH CLASSICA (7).webp')" />
 
-										<img src="images/clutch/CLUTCH DENIM (2).webp" alt="CLUTCH DENIM (2)"
-											onclick="changeImage('images/clutch/CLUTCH DENIM (2).webp')" />
+									<img src="images/clutch/CLUTCH CLASSICA CON TRACOLLA IN FETTUCCIA.webp"
+										alt="CLUTCH CLASSICA CON TRACOLLA IN FETTUCCIA"
+										onclick="changeImage('images/clutch/CLUTCH CLASSICA CON TRACOLLA IN FETTUCCIA.webp')" />
 
-										<img src="images/clutch/CLUTCH FUXIA.webp" alt="CLUTCH FUXIA"
-											onclick="changeImage('images/clutch/CLUTCH FUXIA.webp')" />
+									<img src="images/clutch/CLUTCH DENIM (2).webp" alt="CLUTCH DENIM (2)"
+										onclick="changeImage('images/clutch/CLUTCH DENIM (2).webp')" />
 
-										<img src="images/clutch/CLUTCH METALLIZZATA.webp" alt="CLUTCH METALLIZZATA"
-											onclick="changeImage('images/clutch/CLUTCH METALLIZZATA.webp')" />
+									<img src="images/clutch/CLUTCH FUXIA.webp" alt="CLUTCH FUXIA"
+										onclick="changeImage('images/clutch/CLUTCH FUXIA.webp')" />
 
-										<img src="images/clutch/CLUTCH ROSSA.webp" alt="CLUTCH ROSSA"
-											onclick="changeImage('images/clutch/CLUTCH ROSSA.webp')" />
+									<img src="images/clutch/CLUTCH METALLIZZATA.webp" alt="CLUTCH METALLIZZATA"
+										onclick="changeImage('images/clutch/CLUTCH METALLIZZATA.webp')" />
 
-										<img src="images/clutch/CLUTCH-BRILLANTINATA.webp" alt="CLUTCH-BRILLANTINATA"
-											onclick="changeImage('images/clutch/CLUTCH-BRILLANTINATA.webp')" />
+									<img src="images/clutch/CLUTCH ROSSA.webp" alt="CLUTCH ROSSA"
+										onclick="changeImage('images/clutch/CLUTCH ROSSA.webp')" />
 
-										<img src="images/clutch/CLUTCH-BRILLANTINATA2.webp" alt="CLUTCH-BRILLANTINATA2"
-											onclick="changeImage('images/clutch/CLUTCH-BRILLANTINATA2.webp')" />
+									<img src="images/clutch/CLUTCH-BRILLANTINATA.webp" alt="CLUTCH-BRILLANTINATA"
+										onclick="changeImage('images/clutch/CLUTCH-BRILLANTINATA.webp')" />
 
-										<img src="images/clutch/CLUTCH-CLASSICA1.webp" alt="CLUTCH-CLASSICA1"
-											onclick="changeImage('images/clutch/CLUTCH-CLASSICA1.webp')" />
+									<img src="images/clutch/CLUTCH-BRILLANTINATA2.webp" alt="CLUTCH-BRILLANTINATA2"
+										onclick="changeImage('images/clutch/CLUTCH-BRILLANTINATA2.webp')" />
 
-										<img src="images/clutch/CLUTCH-CLASSICA2.webp" alt="CLUTCH-CLASSICA2"
-											onclick="changeImage('images/clutch/CLUTCH-CLASSICA2.webp')" />
+									<img src="images/clutch/CLUTCH-CLASSICA1.webp" alt="CLUTCH-CLASSICA1"
+										onclick="changeImage('images/clutch/CLUTCH-CLASSICA1.webp')" />
 
-										<img src="images/clutch/CLUTCH-CLASSICA3.webp" alt="CLUTCH-CLASSICA3"
-											onclick="changeImage('images/clutch/CLUTCH-CLASSICA3.webp')" />
+									<img src="images/clutch/CLUTCH-CLASSICA2.webp" alt="CLUTCH-CLASSICA2"
+										onclick="changeImage('images/clutch/CLUTCH-CLASSICA2.webp')" />
 
-										<img src="images/clutch/CLUTCH-CLASSICA4.webp" alt="CLUTCH-CLASSICA4"
-											onclick="changeImage('images/clutch/CLUTCH-CLASSICA4.webp')" />
+									<img src="images/clutch/CLUTCH-CLASSICA3.webp" alt="CLUTCH-CLASSICA3"
+										onclick="changeImage('images/clutch/CLUTCH-CLASSICA3.webp')" />
 
-										<img src="images/clutch/CLUTCH-CLASSICA.webp" alt="CLUTCH-CLASSICA"
-											onclick="changeImage('images/clutch/CLUTCH-CLASSICA.webp')" />
-									</div>
+									<img src="images/clutch/CLUTCH-CLASSICA4.webp" alt="CLUTCH-CLASSICA4"
+										onclick="changeImage('images/clutch/CLUTCH-CLASSICA4.webp')" />
 
-									<!-- Contenitore immagine principale e navigazione -->
-									<div class="main-container">
-										<button class="nav prev" onclick="prevImage()">&lt;</button>
-										<div class="main-image">
-											<img id="currentImage" src="images/clutchClassica.png"
-												alt="Immagine attuale" />
-										</div>
-										<button class="nav next" onclick="nextImage()">&gt;</button>
-									</div>
+									<img src="images/clutch/CLUTCH-CLASSICA.webp" alt="CLUTCH-CLASSICA"
+										onclick="changeImage('images/clutch/CLUTCH-CLASSICA.webp')" />
 								</div>
 
-								<script>
-									// Array con i percorsi delle immagini (l'ordine deve corrispondere alle miniature)
-									const images = [
-										"images/clutchClassica.png",
-										"images/clutch/CLUTCH CLASSICA (6).webp",
-										"images/clutch/CLUTCH CLASSICA (7).webp",
-										"images/clutch/CLUTCH CLASSICA CON TRACOLLA IN FETTUCCIA.webp",
-										"images/clutch/CLUTCH DENIM (2).webp",
-										"images/clutch/CLUTCH FUXIA.webp",
-										"images/clutch/CLUTCH METALLIZZATA.webp",
-										"images/clutch/CLUTCH ROSSA.webp",
-										"images/clutch/CLUTCH-BRILLANTINATA.webp",
-										"images/clutch/CLUTCH-BRILLANTINATA2.webp",
-										"images/clutch/CLUTCH-CLASSICA1.webp",
-										"images/clutch/CLUTCH-CLASSICA2.webp",
-										"images/clutch/CLUTCH-CLASSICA3.webp",
-										"images/clutch/CLUTCH-CLASSICA4.webp",
-										"images/clutch/CLUTCH-CLASSICA.webp"
-									];
-
-									let currentIndex = 0; // Indice dell'immagine attualmente visualizzata
-
-									// Funzione per cambiare immagine sia cliccando sulle miniature sia usando le frecce
-									function changeImage(src) {
-										document.getElementById("currentImage").src = src;
-										currentIndex = images.indexOf(src);
-									}
-
-									// Funzione per passare all'immagine successiva
-									function nextImage() {
-										currentIndex = (currentIndex + 1) % images.length;
-										document.getElementById("currentImage").src = images[currentIndex];
-									}
-
-									// Funzione per tornare all'immagine precedente
-									function prevImage() {
-										currentIndex = (currentIndex - 1 + images.length) % images.length;
-										document.getElementById("currentImage").src = images[currentIndex];
-									}
-								</script>
+								<!-- Contenitore immagine principale e navigazione -->
+								<div class="main-container">
+									<button class="nav prev" onclick="prevImage()">&lt;</button>
+									<div class="main-image" style="margin: 30px;">
+										<img id="currentImage" src="images/clutch/CLUTCH CLASSICA (6).webp"
+											alt="Immagine attuale" />
+									</div>
+									<button class="nav next" onclick="nextImage()">&gt;</button>
+								</div>
+							</div>
 
 
-							</figure>
-						</div>
 
-						<div class="col-md-4">
-							<div class="product-entry" class="leaf-pattern-overlay">
-								<h2 class="section-title divider">Clutch Classica</h2>
+						</figure>
+					</div>
 
-								<div class="products-content">
-									<div class="author-name"></div>
-									<h3 class="item-title"></h3>
-									<p>Clutch bag realizzata interamente a mano con filato semplice, come cotone o
-										lycra. La scelta del materiale dona alla
-										clutch una texture morbida e resistente, perfetta per chi cerca uno stile
-										raffinato ma informale. La chiusura della
-										borsa, con una misura standard di 19 cm o 15 cm, offre praticità e facilità
-										d'uso.
-										E’ possibile applicare la tracolla (catena argentata o dorata o fettuccia stesso
-										colore della borsa) ad un costo di €5.
-										La lavorazione artigianale sottolinea l'unicità di ogni pezzo, distinguendosi
-										per la cura dei dettagli.
+					<div class="col-md-4 col-12">
+						<div class="product-entry" class="leaf-pattern-overlay">
+							<h2 class="section-title divider">Clutch Classica</h2>
 
-										Colorazioni disponibili: BIANCO, AVORIO, ARANCIONE, FUXIA, ROSSO CLASSICO,
-										TORTORA, SENAPE, CELESTE PASTELLO, GIALLO PASTELLO, NERO, OTTANIO.
+							<div class="products-content">
+								<div class="author-name"></div>
+								<h3 class="item-title"></h3>
+								<p>Clutch bag realizzata interamente a mano con filato semplice, come cotone o
+									lycra. La scelta del materiale dona alla
+									clutch una texture morbida e resistente, perfetta per chi cerca uno stile
+									raffinato ma informale. La chiusura della
+									borsa, con una misura standard di 19 cm o 15 cm, offre praticità e facilità
+									d'uso.
+									E’ possibile applicare la tracolla (catena argentata o dorata o fettuccia stesso
+									colore della borsa) ad un costo di €5.
+									La lavorazione artigianale sottolinea l'unicità di ogni pezzo, distinguendosi
+									per la cura dei dettagli.
 
-										<!-- <div class="dropdown" style="padding:10px;">
+									Colorazioni disponibili: BIANCO, AVORIO, ARANCIONE, FUXIA, ROSSO CLASSICO,
+									TORTORA, SENAPE, CELESTE PASTELLO, GIALLO PASTELLO, NERO, OTTANIO.
+
+									<!-- <div class="dropdown" style="padding:10px;">
 										<button class="btn btn-primary dropdown-toggle" type="button"
 											data-bs-toggle="dropdown" aria-expanded="false"
 											style="height: 50px; background-color: #C5A992;; border: #C5A992;">
@@ -313,29 +279,28 @@
 											<li><a class="dropdown-item" href="#">OTTANIO</a></li>
 										</ul>
 									</div> -->
-										<br><br><br>
-										Per richieste relative a colori diversi da quelli indicati, non esitare a
-										contattarci su Instagram
-										(@terrysbags_handmade).
-									</p>
-									<div class="item-price">&euro; 30.00</div>
-									<div class="btn-wrap" style="margin-bottom: 40px;">
+									<br><br><br>
+									Per richieste relative a colori diversi da quelli indicati, non esitare a
+									contattarci su Instagram
+									(@terrysbags_handmade).
+								</p>
+								<div class="item-price">&euro; 30.00</div>
+								<div class="btn-wrap" style="margin-bottom: 40px;">
 
-									</div>
-									<div class="btn-wrap">
-										<a href="#popular-books"
-											class="btn btn-outline-accent btn-accent-arrow">Acquista<i
-												class="icon icon-ns-arrow-right"></i></a>
-									</div>
 								</div>
-
+								<div class="btn-wrap">
+									<a href="#popular-books" class="btn btn-outline-accent btn-accent-arrow">Acquista<i
+											class="icon icon-ns-arrow-right"></i></a>
+								</div>
 							</div>
-						</div>
 
+						</div>
 					</div>
-					<!-- / row -->
 
 				</div>
+				<!-- / row -->
+
+
 
 			</div>
 		</div>
@@ -355,6 +320,46 @@
 			currentImage.src = imageUrl;
 		}
 
+	</script>
+	<script>
+		// Array con i percorsi delle immagini (l'ordine deve corrispondere alle miniature)
+		const images = [
+
+			"images/clutch/CLUTCH CLASSICA (6).webp",
+			"images/clutch/CLUTCH CLASSICA (7).webp",
+			"images/clutch/CLUTCH CLASSICA CON TRACOLLA IN FETTUCCIA.webp",
+			"images/clutch/CLUTCH DENIM (2).webp",
+			"images/clutch/CLUTCH FUXIA.webp",
+			"images/clutch/CLUTCH METALLIZZATA.webp",
+			"images/clutch/CLUTCH ROSSA.webp",
+			"images/clutch/CLUTCH-BRILLANTINATA.webp",
+			"images/clutch/CLUTCH-BRILLANTINATA2.webp",
+			"images/clutch/CLUTCH-CLASSICA1.webp",
+			"images/clutch/CLUTCH-CLASSICA2.webp",
+			"images/clutch/CLUTCH-CLASSICA3.webp",
+			"images/clutch/CLUTCH-CLASSICA4.webp",
+			"images/clutch/CLUTCH-CLASSICA.webp"
+		];
+
+		let currentIndex = 0; // Indice dell'immagine attualmente visualizzata
+
+		// Funzione per cambiare immagine sia cliccando sulle miniature sia usando le frecce
+		function changeImage(src) {
+			document.getElementById("currentImage").src = src;
+			currentIndex = images.indexOf(src);
+		}
+
+		// Funzione per passare all'immagine successiva
+		function nextImage() {
+			currentIndex = (currentIndex + 1) % images.length;
+			document.getElementById("currentImage").src = images[currentIndex];
+		}
+
+		// Funzione per tornare all'immagine precedente
+		function prevImage() {
+			currentIndex = (currentIndex - 1 + images.length) % images.length;
+			document.getElementById("currentImage").src = images[currentIndex];
+		}
 	</script>
 
 

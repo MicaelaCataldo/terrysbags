@@ -1256,6 +1256,14 @@ fieldset[disabled] a.btn {
   
 }
 
+@media screen and (max-width: 700px) {
+
+  .main-logo {
+    max-width: 100%;
+  }
+  
+}
+
  
 
 /*--------------------------------------------------------------
